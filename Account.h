@@ -6,7 +6,7 @@ public:
 
 	void BalanceCheck();
 	void Deposit();
-	void WithdrawCheck(int amount);
+	void Withdraw();
 
 private:
 	int Balance = 1000;

@@ -38,8 +38,12 @@ void Account::Deposit(){
 
 	}
 }
-void Account::WithdrawCheck(int amount) {
+void Account::Withdraw() {
 	int j = 0;
+	int amount;
+	cout << "Please enter amount to Withdraw: $";
+	cin >> amount;
+
 	while (j < 1) {
 		if (amount > Balance) {
 			j += 1;

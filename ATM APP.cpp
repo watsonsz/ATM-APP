@@ -8,7 +8,6 @@ using namespace std;
 
 
 //The only Local functions are the Main Menu, vector selection (Sign in) and Exit functions
-//FIXME: Deposit and Withdraw Functions need to be transferred to their respective functions in the class "Account"
 int MainMenu() {
 	int optionchoice;
 	cout << "1. Sign in\n";
@@ -32,12 +31,11 @@ int AccountPick() {
 	return number;
 
 }
-void WithdrawOption(Account& currAccount) {
-	int amountToWithdraw;
-
-	cout << "Please enter amount to Withdraw: $";
-	cin >> amountToWithdraw;
-	currAccount.WithdrawCheck(amountToWithdraw);
+void ExitProgram(Account& currAccount, vector<Account>& AccountChoice, bool& accountChosen, int& i) {
+	AccountChoice.at(i) = currAccount;
+	accountChosen = false;
+	cout << "GoodBye!\n";
+	system("PAUSE");
 }
 
 int main()
@@ -52,7 +50,6 @@ int main()
 	//The while loop contains the program, with option = 6 being a killswitch only avaiable when account is NOT chosen.
 	while (option != 6) {
 		if (accountChosen) {
-
 			//This while loop is the sign-in instance. It also displays a welcome message with the Account being used displayed
 			while (accountChosen) {
 				cout << "Welcome Account Number: " << i << endl;
@@ -69,15 +66,13 @@ int main()
 					currAccount.Deposit();
 				}
 				else if (option == 4) {
-					WithdrawOption(currAccount);
+					currAccount.Withdraw();
 				}
 
 				else if (option == 5) {
+					ExitProgram(currAccount, AccountChoice, accountChosen, i);
 					system("CLS");
-					AccountChoice.at(i) = currAccount;
-					accountChosen = false;
-					cout << "GoodBye!\n";
-					system("PAUSE");
+					
 				}
 				else {
 					cout << "\t\t Invalid Option \n Please Select and Option from the List Above\n";
@@ -107,4 +102,6 @@ int main()
 
 	return 0;
 }
+
+
 
