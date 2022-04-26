@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <cmath>
 #include "Account.h"
 using namespace std;
+// Balance check
 void Account::BalanceCheck()
 {
-	if (Balance < 100) {
+	if (Balance <= 100) {
 		cout << "Low Balance: $" << Balance << endl;
 	}
 	else {
@@ -16,14 +16,16 @@ void Account::BalanceCheck()
 	system("PAUSE");
 
 }
+
+//Deposit Function
 void Account::Deposit(){
 	int i = 0;
 	int amountToDeposit;
 
 	cout << "Enter Amount to Deposit: $";
-	cin >> amountToDeposit;
 
-	while (i < 1) {
+	while (i < 2) {
+		cin >> amountToDeposit;
 		if (amountToDeposit > 0) {
 			Balance += amountToDeposit;
 			i += 2;
@@ -33,23 +35,24 @@ void Account::Deposit(){
 		else {
 			i += 1;
 			cout << "Invalid Amount, please try again:\n";
-			cin >> amountToDeposit;
+			
 		}
-
 	}
 }
+
+//Withdraw Function
 void Account::Withdraw() {
 	int j = 0;
 	int amount;
 	cout << "Please enter amount to Withdraw: $";
-	cin >> amount;
+	
 
-	while (j < 1) {
+	while (j < 2) {
+		cin >> amount;
 		if (amount > Balance) {
 			j += 1;
 			cout << "Insufficient Funds.\n Current Balance: $" << Balance << endl;
 			cout << "Enter New Amount: $";
-			cin >> amount;
 		}
 		else {
 			j += 2;

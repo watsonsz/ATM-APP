@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <cmath>
 #include "Account.h"
 using namespace std;
 
@@ -71,14 +70,12 @@ int main()
 
 				else if (option == 5) {
 					ExitProgram(currAccount, AccountChoice, accountChosen, i);
-					system("CLS");
 					
 				}
 				else {
 					cout << "\t\t Invalid Option \n Please Select and Option from the List Above\n";
 					system("PAUSE");
 				}
-				system("CLS");
 
 			}
 		}
@@ -89,19 +86,14 @@ int main()
 		if (option == 1) {
 			i = AccountPick();
 			currAccount = AccountChoice.at(i);
-			system("CLS");
 			accountChosen = true;
 		}
 		else {
 			cout << "Please Sign in to continue\n";		
 			system("PAUSE");
 		}
-		system("CLS");
 
 	}
 
 	return 0;
 }
-
-
-
