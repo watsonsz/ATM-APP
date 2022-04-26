@@ -70,7 +70,7 @@ int main()
 
 				else if (option == 5) {
 					ExitProgram(currAccount, AccountChoice, accountChosen, i);
-					
+					option = MainMenu();
 				}
 				else {
 					cout << "\t\t Invalid Option \n Please Select and Option from the List Above\n";
